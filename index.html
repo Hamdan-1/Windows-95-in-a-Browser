@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 95 File Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Window Manager -->
+        <div class="window file-manager" id="fileManager">
+            <div class="title-bar">
+                <div class="title-bar-text">📁 Windows 95 File Manager</div>
+                <div class="title-bar-controls">
+                    <button class="minimize-btn" onclick="minimizeWindow()">_</button>
+                    <button class="maximize-btn" onclick="maximizeWindow()">⬜</button>
+                    <button class="close-btn" onclick="closeWindow()">✕</button>
+                </div>
+            </div>
+            
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('file')">File</div>
+                <div class="menu-item" onclick="showMenu('edit')">Edit</div>
+                <div class="menu-item" onclick="showMenu('view')">View</div>
+                <div class="menu-item" onclick="showMenu('tools')">Tools</div>
+                <div class="menu-item" onclick="showMenu('help')">Help</div>
+            </div>
+            
+            <div class="toolbar">
+                <button class="toolbar-btn" onclick="goBack()" title="Back">🠐</button>
+                <button class="toolbar-btn" onclick="goForward()" title="Forward">🠒</button>
+                <button class="toolbar-btn" onclick="goUp()" title="Up">🠑</button>
+                <div class="separator"></div>
+                <button class="toolbar-btn" onclick="createFolder()" title="New Folder">📁+</button>
+                <button class="toolbar-btn" onclick="createFile()" title="New File">📄+</button>
+                <div class="separator"></div>
+                <button class="toolbar-btn" onclick="toggleView()" title="Toggle View">👁</button>
+                <button class="toolbar-btn" onclick="refresh()" title="Refresh">🔄</button>
+            </div>
+            
+            <div class="address-bar">
+                <label>Address:</label>
+                <input type="text" id="addressInput" value="C:\Windows\Desktop" readonly onclick="editAddress()">
+            </div>
+            
+            <div class="content-area">
+                <div class="sidebar">
+                    <div class="drive-list">
+                        <div class="drive-item" onclick="navigateTo('C:')">
+                            <span class="drive-icon">💿</span> Local Disk (C:)
+                        </div>
+                        <div class="drive-item" onclick="navigateTo('A:')">
+                            <span class="drive-icon">💾</span> 3½ Floppy (A:)
+                        </div>
+                        <div class="drive-item" onclick="navigateTo('D:')">
+                            <span class="drive-icon">💿</span> CD-ROM (D:)
+                        </div>
+                    </div>
+                    
+                    <div class="folder-tree">
+                        <div class="tree-item expanded" onclick="toggleFolder(this)">
+                            <span class="tree-icon">📂</span> Desktop
+                            <div class="tree-children">
+                                <div class="tree-item" onclick="navigateTo('Desktop/My Computer')">
+                                    <span class="tree-icon">💻</span> My Computer
+                                </div>
+                                <div class="tree-item" onclick="navigateTo('Desktop/Recycle Bin')">
+                                    <span class="tree-icon">🗑️</span> Recycle Bin
+                                </div>
+                                <div class="tree-item" onclick="navigateTo('Desktop/My Documents')">
+                                    <span class="tree-icon">📁</span> My Documents
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-view">
+                    <div class="file-list" id="fileList">
+                        <!-- Files will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="status-bar">
+                <span id="statusText">Ready</span>
+                <div class="status-info">
+                    <span id="fileCount">0 objects</span>
+                    <span id="selectedInfo"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" style="top: 20px; left: 20px;" ondblclick="openMyComputer()">
+            <div class="icon">💻</div>
+            <div class="icon-label">My Computer</div>
+        </div>
+        
+        <div class="desktop-icon" style="top: 120px; left: 20px;" ondblclick="openRecycleBin()">
+            <div class="icon">🗑️</div>
+            <div class="icon-label">Recycle Bin</div>
+        </div>
+        
+        <div class="desktop-icon" style="top: 220px; left: 20px;" ondblclick="openFileManager()">
+            <div class="icon">📁</div>
+            <div class="icon-label">File Manager</div>
+        </div>
+        
+        <div class="desktop-icon" style="top: 320px; left: 20px;" ondblclick="openNotepad()">
+            <div class="icon">📝</div>
+            <div class="icon-label">Notepad</div>
+        </div>
+        
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <button class="start-button" onclick="toggleStartMenu()">
+                <span class="start-icon">⊞</span> Start
+            </button>
+            
+            <div class="taskbar-buttons" id="taskbarButtons">
+                <button class="taskbar-button active" onclick="showWindow('fileManager')">
+                    📁 File Manager
+                </button>
+            </div>
+            
+            <div class="system-tray">
+                <div class="tray-icon" title="Volume">🔊</div>
+                <div class="clock" id="clock"></div>
+            </div>
+        </div>
+        
+        <!-- Start Menu -->
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <div class="start-menu-logo">Windows 95</div>
+            </div>
+            <div class="start-menu-items">
+                <div class="start-menu-item" onclick="openProgram('calculator')">
+                    🧮 Calculator
+                </div>
+                <div class="start-menu-item" onclick="openProgram('notepad')">
+                    📝 Notepad
+                </div>
+                <div class="start-menu-item" onclick="openProgram('paint')">
+                    🎨 Paint
+                </div>
+                <div class="start-menu-item" onclick="openProgram('solitaire')">
+                    🃏 Solitaire
+                </div>
+                <div class="start-menu-separator"></div>
+                <div class="start-menu-item" onclick="openProgram('settings')">
+                    ⚙️ Settings
+                </div>
+                <div class="start-menu-item" onclick="openProgram('help')">
+                    ❓ Help
+                </div>
+                <div class="start-menu-separator"></div>
+                <div class="start-menu-item" onclick="shutdown()">
+                    🔌 Shut Down...
+                </div>
+            </div>
+        </div>
+        
+        <!-- Context Menus -->
+        <div class="context-menu" id="contextMenu">
+            <div class="menu-item" onclick="openFile()">Open</div>
+            <div class="menu-item" onclick="cutFile()">Cut</div>
+            <div class="menu-item" onclick="copyFile()">Copy</div>
+            <div class="menu-item" onclick="pasteFile()">Paste</div>
+            <div class="menu-separator"></div>
+            <div class="menu-item" onclick="deleteFile()">Delete</div>
+            <div class="menu-item" onclick="renameFile()">Rename</div>
+            <div class="menu-separator"></div>
+            <div class="menu-item" onclick="showProperties()">Properties</div>
+        </div>
+        
+        <!-- Modal Dialogs -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-title" id="modalTitle">Dialog</div>
+                <div class="modal-body" id="modalBody">
+                    <p>This is a modal dialog.</p>
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-primary" onclick="closeModal()">OK</button>
+                    <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
