@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 95 File Manager - Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .demo-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+        }
+        
+        .demo-title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #000080, #0000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .demo-subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .features {
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .feature::before {
+            content: "💻 ";
+            margin-right: 8px;
+        }
+        
+        .launch-button {
+            background: linear-gradient(45deg, #000080, #0000ff);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 10px;
+        }
+        
+        .launch-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,128,0.3);
+        }
+        
+        .preview {
+            margin: 30px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .retro-text {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="demo-title">Windows 95 File Manager</h1>
+        <p class="demo-subtitle">Experience the nostalgia of classic Windows 95 in your browser!</p>
+        
+        <div class="retro-text">
+C:\> dir<br>
+Volume in drive C is WINDOWS95<br>
+Directory of C:\Windows\Desktop<br><br>
+📁 My Computer<br>
+📁 My Documents<br>
+📁 Recycle Bin<br>
+🧮 Calculator<br>
+📝 Notepad<br>
+🎨 Paint<br>
+        </div>
+        
+        <div class="features">
+            <div class="feature">Authentic Windows 95 interface with pixel-perfect styling</div>
+            <div class="feature">Full file manager functionality (create, delete, copy, paste)</div>
+            <div class="feature">Interactive desktop with Start menu and taskbar</div>
+            <div class="feature">Classic Windows 95 sound effects</div>
+            <div class="feature">Keyboard shortcuts and right-click context menus</div>
+            <div class="feature">Responsive design that works on all devices</div>
+        </div>
+        
+        <a href="index.html" class="launch-button">🚀 Launch Windows 95</a>
+        <a href="README.md" class="launch-button" style="background: linear-gradient(45deg, #666, #999);">📖 View Documentation</a>
+        
+        <div class="retro-text">
+System Requirements:<br>
+- Any modern web browser<br>
+- JavaScript enabled<br>
+- Audio support (optional)<br>
+- A sense of nostalgia 😊
+        </div>
+        
+        <p style="margin-top: 30px; color: #666; font-size: 0.9em;">
+            Built with HTML, CSS, and JavaScript • No frameworks required • Open Source
+        </p>
+    </div>
+</body>
+</html>
