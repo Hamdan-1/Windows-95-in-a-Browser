@@ -1,6 +1,6 @@
-# Windows 95 File Manager - Browser Edition 💻
+# Windows 95 - Browser Edition 💻 (Made With Love By Hamdan Esmail 💖)
 
-A fully functional Windows 95-style File Manager that runs entirely in your web browser! Experience the nostalgia of the classic Windows 95 interface with modern web technologies.
+A fully functional Windows 95-styl that runs entirely in your web browser! Experience the nostalgia of the classic Windows 95 interface with modern web technologies.
 
 ## 🎯 Features
 
