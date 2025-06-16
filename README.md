@@ -48,13 +48,6 @@ A fully functional Windows 95-style File Manager that runs entirely in your web 
 2. **Open `index.html`** in any modern web browser
 3. **Enjoy the nostalgia!** - No installation required
 
-```bash
-# If you have a local server
-python -m http.server 8000
-# or
-npx serve .
-```
-
 Then open http://localhost:8000 in your browser.
 
 ## 🎮 How to Use
